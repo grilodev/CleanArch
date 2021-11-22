@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Application.ViewModels.AnuncioViewModel>
+
+@{
+    ViewData["Title"] = "Anúncios";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            <div class="pull-left">
+                <a asp-action="Create" class="btn btn-primary">
+                    <span title="Criar anúncio" class="fas fa-plus"></span> Criar anúncio
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="panel panel-default">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Marca)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Modelo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Versao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ano)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Quilometragem)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Observacao)
+                    </th>
+                    <th>
+                        Ações
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Marca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Modelo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Versao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Ano)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Quilometragem)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Observacao)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID"  title="Editar" class="btn btn-primary">
+                            <span title="Criar anúncio" class="fas fa-edit"></span> Editar
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.ID" title="Excluir" class="btn btn-danger">
+                            <span title="Criar anúncio" class="fas fa-trash-alt"></span> Excluir
+                        </a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
